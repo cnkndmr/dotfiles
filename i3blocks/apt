@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send "Upgradable package list" "$(apt list --upgradable | awk '{print $1}' | cut -c -55)" ;;
+esac
+
+APT=$(( $(apt list --upgradable | wc -l) - 1 ))
+#APT=12
+
+COLOR='<span color="#FFFFFF">'
+[ $APT -ne 0 ] && COLOR='<span color="#00BFFF">'
+
+echo $COLOR$APT'</span>'

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+TEMP=$(acpi -t | awk '{print $4}')
+TEMP_RAT=$(acpi -t | awk '{print $4/70*100}')
+TEMP_RAT_INT=$(printf '%.0f\n' $TEMP_RAT)
+#TEMPINT=40
+
+COLOR='<span color="#FF0000">'
+[ $TEMP_RAT_INT -lt 90 ] && COLOR='<span color="#FFFF00">'
+[ $TEMP_RAT_INT -lt 60 ] && COLOR='<span color="#00FF00">'
+
+echo $COLOR$TEMP'C''</span>'

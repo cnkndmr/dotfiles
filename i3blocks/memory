@@ -1,0 +1,13 @@
+#!/bin/sh
+
+MEMORY=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+MEMORY_RAT=$(free | awk '/^Mem:/ {print $3/$2*100}')
+#MEMORY_RAT=52.51
+MEMORY_RAT_INT=$(printf '%.0f\n' $MEMORY_RAT)
+#MEMORY_RAT_INT=10
+
+COLOR='<span color="#FF0000">'
+[ $MEMORY_RAT_INT -lt 75 ] && COLOR='<span color="#FFFF00">'
+[ $MEMORY_RAT_INT -lt 50 ] && COLOR='<span color="#00FF00">'
+
+echo $COLOR$MEMORY'</span>'

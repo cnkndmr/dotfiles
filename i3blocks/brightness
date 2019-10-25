@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) xbacklight -set 100 && pkill -RTMIN+13 i3blocks ;;
+	2) xbacklight -set 51 && pkill -RTMIN+13 i3blocks ;;
+	3) xbacklight -set 0 && pkill -RTMIN+13 i3blocks ;;
+	4) xbacklight -inc 5% && pkill -RTMIN+13 i3blocks ;; # scroll up, increase
+	5) xbacklight -dec 5% && pkill -RTMIN+13 i3blocks ;; # scroll down, decrease
+esac
+
+echo $(xbacklight | sed 's/\..*//')%

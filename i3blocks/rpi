@@ -1,0 +1,9 @@
+#!/bin/sh
+STATUS=$(ping -c 1 -s 1 -W 5 10.147.20.190 | grep '1 received' | wc -l)
+[ $STATUS -eq 0 ] && echo '<span color="#FF0000">DOWN</span>'
+[ $STATUS -eq 1 ] && echo '<span color="#00FF00">UP</span>'
+
+case $BLOCK_BUTTON in
+	1) [ $STATUS -eq 1 ] && mate-terminal -e 'ssh pi@10.147.20.190';;
+	3) [ $STATUS -eq 1 ] && caja smb://10.147.20.190/canraspberrypi/;;
+esac

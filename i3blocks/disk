@@ -1,0 +1,17 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send "Disk Usage" "$(df -h)" ;;
+esac
+
+DISK=$(df -h ~ | awk 'END{print $4}' | sed 's/[^0-9]*//g')
+DISK_RAT=$(df -h ~ | awk 'END{print $4}' | sed 's/[^0-9]*//g' | awk '{print $1/180*100}')
+#DISK_RAT=74.5
+DISK_RAT_INT=$(printf '%.0f\n' $DISK_RAT)
+
+
+COLOR='<span color="#00FF00">'
+[ $DISKRAT -lt 75 ] && COLOR='<span color="#FFFF00">'
+[ $DISKRAT -lt 25 ] && COLOR='<span color="#FF0000">'
+
+echo $COLOR$DISK'G''</span>'
