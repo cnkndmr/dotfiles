@@ -207,6 +207,7 @@ bindsym $mod+Shift+u exec notify-send "Upgradable package list" "$(apt list --up
 
 for_window [instance="mate-calculator"] floating enable
 for_window [instance="keepass2"] floating enable
+for_window [title="htop"] floating enable
 
 bindsym $mod+grave exec $terminal -e "ssh pi@10.147.20.190"
 bindsym $mod+Shift+grave exec caja smb://10.147.20.190/canraspberrypi/
