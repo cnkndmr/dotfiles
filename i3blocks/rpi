@@ -1,9 +1,17 @@
 #!/bin/sh
-STATUS=$(ping -c 1 -s 1 -W 5 10.147.20.190 | grep '1 received' | wc -l)
+# Can Kandemir: cnkndmr@gmail.com
+# shows the status of raspberry pi
+# i use private network to keep connection between raspberry and my computer
+# 10.147.20.190 is my rpi ip
+# left click opens terminal
+# right click opens rpi directory
+
+RASPIP=10.147.20.190
+STATUS=$(ping -c 1 -s 1 -W 5 $RASPIP | grep '1 received' | wc -l)
 [ $STATUS -eq 0 ] && echo '<span color="#FF0000">DOWN</span>'
 [ $STATUS -eq 1 ] && echo '<span color="#00FF00">UP</span>'
 
 case $BLOCK_BUTTON in
-	1) [ $STATUS -eq 1 ] && mate-terminal -e 'ssh pi@10.147.20.190';;
-	3) [ $STATUS -eq 1 ] && caja smb://10.147.20.190/canraspberrypi/;;
+	1) [ $STATUS -eq 1 ] && mate-terminal -e "ssh pi@$RASPIP";;
+	3) [ $STATUS -eq 1 ] && caja smb://$RASPIP/canraspberrypi/;;
 esac

@@ -1,4 +1,8 @@
 #!/bin/sh
+# Can Kandemir: cnkndmr@gmail.com
+# shows the available disk space
+# changes color if disk space below 75% and 25%
+# left click shows the list of disks on notification area
 
 case $BLOCK_BUTTON in
 	1) notify-send "Disk Usage" "$(df -h)" ;;

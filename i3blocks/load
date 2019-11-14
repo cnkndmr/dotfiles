@@ -1,7 +1,10 @@
 #!/bin/sh
+# Can Kandemir: cnkndmr@gmail.com
+# shows the cpu load
+# changes color if load above 75% and 100%
 
 case $BLOCK_BUTTON in
-	1) mate-terminal -e htop ;;
+	1) mate-terminal -e htop;;
 esac
 
 LOAD=$(cat /proc/loadavg | awk -vnproc=$(nproc) '{print $1/nproc}')

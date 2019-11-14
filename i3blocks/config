@@ -3,43 +3,54 @@ separator_block_width=15
 markup=pango
 interval=30
 
+[mediaplayer]
+command=~/.config/i3blocks/mediaplayer
+instance=rhythmbox
+interval=5
+signal=10
+
+# [rhythmbox]
+# command=rhythmbox-client --print-playing-format="%tt"
+# interval=1
+
 [iface]
 color=#00FF00
 interval=10
 
 [rpi]
 interval=10
-label=PI:
+#label=PI:
 
 [apt]
-label=APT:
+#label=APT:
 
 [brightness]
-label=B:
+#label=B:
 signal=13
 
 [volume]
-label=V:
+#abel=V:
 signal=12
 
 [battery]
 
 [battery2]
-command=echo $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep energy: | awk '{print $2}')Wh
+#ommand=echo $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep energy: | awk '{print $2}')Wh
+command=echo $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep energy: | awk '{print $2}')
 interval=5
 
 [temp]
-label=TEMP:
+#abel=TEMP:
 interval=5
 
 [load]
 interval=5
 
 [memory]
-label=MEM:
+#abel=MEM:
 
 [disk]
-label=DISC:
+#abel=DISC:
 
 [time]
-command=date '+%d/%m/%Y (%a) %H:%M'
+command=date '+%d/%m/%Y(%a)%H:%M'

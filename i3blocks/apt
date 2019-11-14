@@ -1,13 +1,19 @@
 #!/bin/sh
+# Can Kandemir: cnkndmr@gmail.com
+# apt block shows the count of upgradable packages.
+# left click shows the upgradable packages at notification area
 
 case $BLOCK_BUTTON in
 	1) notify-send "Upgradable package list" "$(apt list --upgradable | awk '{print $1}' | cut -c -55)" ;;
 esac
 
 APT=$(( $(apt list --upgradable | wc -l) - 1 ))
+REBOOT=$(cat /var/run/reboot-required | wc -l)
 #APT=12
 
 COLOR='<span color="#FFFFFF">'
 [ $APT -ne 0 ] && COLOR='<span color="#00BFFF">'
+[ $REBOOT -eq 1 ] && COLOR='<span color="#FF0000">Reboot '
+#[ $REBOOT -eq 1 ] && COLOR='<span color="#FF0000">'
 
 echo $COLOR$APT'</span>'

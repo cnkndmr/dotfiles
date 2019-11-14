@@ -1,4 +1,10 @@
 #!/bin/sh
+# Can Kandemir: cnkndmr@gmail.com
+# shows the percentage of brightness
+# left click sets brightness to 100%
+# middle click sets brightness to 50%
+# right click sets brightness to 0%
+# scroll up/down changes brightness by +-5%
 
 case $BLOCK_BUTTON in
 	1) xbacklight -set 100 && pkill -RTMIN+13 i3blocks ;;

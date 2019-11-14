@@ -1,4 +1,7 @@
 #!/bin/sh
+# Can Kandemir: cnkndmr@gmail.com
+# shows the memory
+# changes color if memory above 50% and 75%
 
 MEMORY=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
 MEMORY_RAT=$(free | awk '/^Mem:/ {print $3/$2*100}')

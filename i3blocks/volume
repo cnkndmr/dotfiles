@@ -1,4 +1,10 @@
 #!/bin/sh
+# Can Kandemir: cnkndmr@gmail.com
+# shows the percentage of volume
+# left click sets volume to 100%
+# middle click sets volume to 50%
+# right click sets volume to 0%
+# scroll up/down changes volume by +-5%
 
 case $BLOCK_BUTTON in
 	1) pulsemixer --set-volume 100 && pkill -RTMIN+12 i3blocks ;;
