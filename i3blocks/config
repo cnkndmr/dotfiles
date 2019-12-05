@@ -1,17 +1,7 @@
-command=~/.config/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 interval=30
-
-[mediaplayer]
-command=~/.config/i3blocks/mediaplayer
-instance=rhythmbox
-interval=5
-signal=10
-
-# [rhythmbox]
-# command=rhythmbox-client --print-playing-format="%tt"
-# interval=1
 
 [iface]
 color=#00FF00
