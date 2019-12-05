@@ -10,10 +10,8 @@ esac
 APT=$(( $(apt list --upgradable | wc -l) - 1 ))
 REBOOT=$(cat /var/run/reboot-required | wc -l)
 #APT=12
+#REBOOT=1
 
-COLOR='<span color="#FFFFFF">'
-[ $APT -ne 0 ] && COLOR='<span color="#00BFFF">'
-[ $REBOOT -eq 1 ] && COLOR='<span color="#FF0000">Reboot '
-#[ $REBOOT -eq 1 ] && COLOR='<span color="#FF0000">'
-
-echo $COLOR$APT'</span>'
+[ $REBOOT -eq 1 ] && echo '<span color="#FF0000">Reboot Required</span>'
+[ $APT -ne 0 ] && echo '<span color="#00FF00">'$APT'</span>'
+echo

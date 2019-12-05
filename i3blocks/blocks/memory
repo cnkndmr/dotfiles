@@ -9,6 +9,10 @@ MEMORY_RAT=$(free | awk '/^Mem:/ {print $3/$2*100}')
 MEMORY_RAT_INT=$(printf '%.0f\n' $MEMORY_RAT)
 #MEMORY_RAT_INT=10
 
+case $BLOCK_BUTTON in
+	1) notify-send "Memory Usage" "$(ps axch -o cmd:15,%mem --sort=-%mem | head -n30)" ;;
+esac
+
 COLOR='<span color="#FF0000">'
 [ $MEMORY_RAT_INT -lt 75 ] && COLOR='<span color="#FFFF00">'
 [ $MEMORY_RAT_INT -lt 50 ] && COLOR='<span color="#00FF00">'

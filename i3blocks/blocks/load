@@ -4,7 +4,8 @@
 # changes color if load above 75% and 100%
 
 case $BLOCK_BUTTON in
-	1) mate-terminal -e htop;;
+	1) notify-send "CPU Usage" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head -n30)" ;;
+	3) mate-terminal -e htop ;;
 esac
 
 LOAD=$(cat /proc/loadavg | awk -vnproc=$(nproc) '{print $1/nproc}')
