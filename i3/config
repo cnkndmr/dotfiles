@@ -23,6 +23,12 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -34,18 +40,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -94,20 +88,9 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -128,32 +111,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-		tray_output primary
-        font pango:mono 10
-		status_command i3blocks
-}
+###################################
+# Shutdown, lock, logout, suspend #
+###################################
 
-# Volume control
-bindsym $mod+Prior exec --no-startup-id pulsemixer --change-volume +5 && pkill -RTMIN+12 i3blocks
-bindsym $mod+Next exec --no-startup-id pulsemixer --change-volume -5 && pkill -RTMIN+12 i3blocks
-
-# Brightness control
-bindsym $mod+Shift+Prior exec --no-startup-id xbacklight -inc 5% && pkill -RTMIN+13 i3blocks
-bindsym $mod+Shift+Next exec --no-startup-id xbacklight -dec 5% && pkill -RTMIN+13 i3blocks
-
-# Shutdown, lock, logout, suspend 
-set $Locker i3lock && sleep 1
-#set $Locker ~/.config/i3/i3lock.sh && sleep 1
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
 	bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
@@ -162,19 +128,36 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+set $Locker i3lock -e -f -c 000000
+
 bindsym $mod+Shift+e mode "$mode_system"
+
+#################
+# MISCELLANEOUS #
+#################
 
 # Print screen
 bindsym Print exec mate-screenshot -i
+
+# Title bar
+new_window 1pixel
+
+# middle screen mouse appearing
+mouse_warping none
+
+bindsym $mod+u exec notify-send "Upgradable package list" "$(apt list --upgradable | awk '{print $1}' | cut -c -55)"
+
+for_window [instance="keepass2"] floating enable
+
+####################
+# STARTUP DEFAULTS #
+####################
 
 # Keyboard switch
 exec --no-startup-id setxkbmap -option grp:alt_space_toggle -layout us,tr
 
 # Turn bluetooth off
 exec --no-startup-id bluetooth off
-
-# Title bar
-new_window 1pixel
 
 # network manager applet
 exec --no-startup-id nm-applet
@@ -183,7 +166,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id mate-volume-control-applet
 
 # mate-daemon-start
-exec mate-settings-daemon
+exec --no-startup-id mate-settings-daemon
 
 # caffeine indicator
 exec --no-startup-id caffeine-indicator
@@ -194,23 +177,62 @@ exec --no-startup-id redshift-gtk
 # caja-dropbox
 exec --no-startup-id ~/Dev/dropbox.py start
 
-# middle screen mouse appearing
-mouse_warping none
+# Background
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/6787605-earth-wallpaper.jpg
+
+# compton
+exec --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+
+################
+# RASPBERRY PI #
+################
+
+set $RASP_IP 10.147.20.190
+
+bindsym $mod+grave exec $terminal -e "ssh pi@$RASP_IP"
+bindsym $mod+Shift+grave exec caja smb://$RASP_IP/canraspberrypi/
+
+###########
+# SCRIPTS #
+###########
+
+set $SCRIPT_PATH ~/.config/i3/i3scripts
+
+bindsym $mod+p exec $SCRIPT_PATH/dmenu_pdf.sh
+bindsym $mod+Shift+p exec $SCRIPT_PATH/workspace.sh
+bindsym $mod+minus exec $SCRIPT_PATH/move.sh
+bindsym $mod+m exec $SCRIPT_PATH/media.sh
+bindsym $mod+Shift+m exec $SCRIPT_PATH/media.sh -d
+
+##############################
+# VOLUME/BRIGHTNESS CONTROLS #
+##############################
+
+# Volume control
+bindsym $mod+Prior exec --no-startup-id pulsemixer --change-volume +5 && pkill -RTMIN+12 i3blocks
+bindsym $mod+Next exec --no-startup-id pulsemixer --change-volume -5 && pkill -RTMIN+12 i3blocks
+
+# Brightness control
+bindsym $mod+Shift+Prior exec --no-startup-id xbacklight -inc 5% && pkill -RTMIN+13 i3blocks
+bindsym $mod+Shift+Next exec --no-startup-id xbacklight -dec 5% && pkill -RTMIN+13 i3blocks
+
+#################
+# MAIN PROGRAMS #
+#################
 
 bindsym $mod+z exec firefox
 bindsym $mod+x exec caja
-bindsym $mod+c exec emacs25
-bindsym $mod+m exec $terminal -e "mpv $(xclip -o)"
-bindsym $mod+Shift+m exec $terminal -e "streamlink -p mpv $(xclip -o) best"
-bindsym $mod+u exec $terminal -e "./Dev/gits/scripts/update.sh && read"
-bindsym $mod+Shift+u exec notify-send "Upgradable package list" "$(apt list --upgradable | awk '{print $1}' | cut -c -55)"
+bindsym $mod+c exec emacs
 
-for_window [instance="mate-calculator"] floating enable
-for_window [instance="keepass2"] floating enable
-for_window [title="htop"] floating enable
+###################
+# i3bar(i3blocks) #
+###################
 
-bindsym $mod+grave exec $terminal -e "ssh pi@10.147.20.190"
-bindsym $mod+Shift+grave exec caja smb://10.147.20.190/canraspberrypi/
-
-# move all workspace between monitors
-bindsym $mod+minus exec ~/.config/i3/move.sh
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+		tray_output primary
+        font pango:mono 10
+		status_command i3blocks
+		position bottom
+}
