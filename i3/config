@@ -149,6 +149,12 @@ bindsym $mod+u exec notify-send "Upgradable package list" "$(apt list --upgradab
 
 for_window [instance="keepass2"] floating enable
 
+# new_window pixel 3
+new_window pixel 2
+
+# always start mpv on workspace 1
+# assign [class="mpv"] workspace 1
+
 ####################
 # STARTUP DEFAULTS #
 ####################
@@ -178,7 +184,9 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id ~/Dev/dropbox.py start
 
 # Background
+# Instead of startup command do it by using feh gui (right click > set background)
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/6787605-earth-wallpaper.jpg
+# exec --no-startup-id feh --bg-scale ~/Documents/Mi8/Pictures/Walli\ Artworks/Ferocious8862_square.jpg
 
 # compton
 exec --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
@@ -199,10 +207,15 @@ bindsym $mod+Shift+grave exec caja smb://$RASP_IP/canraspberrypi/
 set $SCRIPT_PATH ~/.config/i3/i3scripts
 
 bindsym $mod+p exec $SCRIPT_PATH/dmenu_pdf.sh
-bindsym $mod+Shift+p exec $SCRIPT_PATH/workspace.sh
+bindsym $mod+Control+p exec $SCRIPT_PATH/dmenu_pdf.sh -e
+# bindsym $mod+Shift+p exec $SCRIPT_PATH/workspace.sh
+bindsym $mod+Shift+p exec mpv "$(find /media/$(whoami)/HDD_CAN/Downloads/youtube-dl/video -type d | dmenu -i -l 20)"
 bindsym $mod+minus exec $SCRIPT_PATH/move.sh
 bindsym $mod+m exec $SCRIPT_PATH/media.sh
 bindsym $mod+Shift+m exec $SCRIPT_PATH/media.sh -d
+bindsym $mod+Control+m exec $SCRIPT_PATH/media.sh -m
+# bindsym $mod+Print exec $SCRIPT_PATH/fehbg.sh
+bindsym $mod+Print exec feh --bg-scale "$(find ~/Documents/Mi8/Pictures/Walli\ Artworks/ -type f | dmenu -i -l 20)"
 
 ##############################
 # VOLUME/BRIGHTNESS CONTROLS #
@@ -223,6 +236,7 @@ bindsym $mod+Shift+Next exec --no-startup-id xbacklight -dec 5% && pkill -RTMIN+
 bindsym $mod+z exec firefox
 bindsym $mod+x exec caja
 bindsym $mod+c exec emacs
+bindsym $mod+Shift+x exec $terminal -e /usr/bin/newsboat
 
 ###################
 # i3bar(i3blocks) #
