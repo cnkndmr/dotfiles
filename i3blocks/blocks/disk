@@ -6,6 +6,7 @@
 
 case $BLOCK_BUTTON in
 	1) notify-send "Disk Usage" "$(df -h)" ;;
+	3) notify-send "Most disk space usage" "$(du -a $HOME | sort -n -r | head -n 15 | awk '{print $2}')" ;;
 esac
 
 DISK=$(df -h ~ | awk 'END{print $4}' | sed 's/[^0-9]*//g')
