@@ -5,3 +5,96 @@ gtk-color-scheme='menu_bg: #ffffff'
 gtk-theme='Arc-Dark'
 icon-theme='menta'
 monospace-font-name='Monospace 13'
+
+[org/mate/desktop/keybindings/custom0]
+action='/home/can/Dev/gits/scripts/i3scripts/dmenu_pdf.sh'
+binding='<Mod4>p'
+name='dmenu_pdf'
+
+[org/mate/desktop/keybindings/custom1]
+action='/home/can/Dev/gits/scripts/i3scripts/dmenu_pdf.sh -e'
+binding='<Primary><Mod4>p'
+name='dmenu_pdf-masterpdfeditor'
+
+[org/mate/desktop/keybindings/custom10]
+action='/usr/bin/firefox'
+binding='<Mod4>z'
+name='firefox'
+
+[org/mate/desktop/keybindings/custom11]
+action='/usr/bin/mate-panel --run-dialog'
+binding='<Shift><Mod4>d'
+name='run_menu'
+
+[org/mate/desktop/keybindings/custom12]
+action='/home/can/Dev/gits/scripts/i3scripts/move.sh'
+binding='<Mod4>0'
+name='move'
+
+[org/mate/desktop/keybindings/custom13]
+action='/usr/bin/mate-screenshot -i'
+binding='Print'
+name='prnt_scr'
+
+[org/mate/desktop/keybindings/custom14]
+action='/usr/bin/amixer set Master 10%+'
+binding='<Mod4>Page_Up'
+name='volume_inc'
+
+[org/mate/desktop/keybindings/custom15]
+action='/usr/bin/amixer set Master 10%-'
+binding='<Mod4>Page_Down'
+name='volume_dec'
+
+[org/mate/desktop/keybindings/custom16]
+action='emacs'
+binding='<Mod4>c'
+name='emacs'
+
+[org/mate/desktop/keybindings/custom2]
+action='/home/can/Dev/gits/scripts/i3scripts/dmenu_watch.sh'
+binding='<Shift><Mod4>p'
+name='dmenu_watch'
+
+[org/mate/desktop/keybindings/custom3]
+action='/home/can/Dev/gits/scripts/i3scripts/media.sh'
+binding='<Mod4>m'
+name='media_watch'
+
+[org/mate/desktop/keybindings/custom4]
+action='/home/can/Dev/gits/scripts/i3scripts/media.sh -m'
+binding='<Primary><Mod4>m'
+name='media_audio'
+
+[org/mate/desktop/keybindings/custom5]
+action='/home/can/Dev/gits/scripts/i3scripts/media.sh -d'
+binding='<Shift><Mod4>m'
+name='media_download'
+
+[org/mate/desktop/keybindings/custom6]
+action='/home/can/Dev/gits/scripts/i3scripts/linkhandler.sh'
+binding='<Mod4>F8'
+name='linkhandler'
+
+[org/mate/desktop/keybindings/custom7]
+action='systemctl suspend'
+binding='<Mod4>s'
+name='suspend'
+
+[org/mate/desktop/keybindings/custom8]
+action='/home/can/Dev/gits/scripts/chromium_print.sh'
+binding='<Shift><Mod4>F8'
+name='chromium_print'
+
+[org/mate/desktop/keybindings/custom9]
+action='/usr/bin/caja --no-desktop --browser ""'
+binding='<Mod4>x'
+name='caja'
+
+[org/mate/desktop/peripherals/keyboard/general]
+default-group=0
+group-per-window=false
+
+[org/mate/desktop/peripherals/keyboard/kbd]
+layouts=['us', 'tr']
+options=['grp\tgrp:alt_space_toggle']
