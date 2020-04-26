@@ -6,6 +6,12 @@ gtk-theme='Arc-Dark'
 icon-theme='menta'
 monospace-font-name='Monospace 13'
 
+[org/mate/desktop/session]
+required-components-list=['windowmanager', 'panel', 'dock']
+
+[org/mate/desktop/session/required-components]
+windowmanager='i3'
+
 [org/mate/caja/preferences]
 always-use-location-entry=false
 default-folder-viewer='list-view'
