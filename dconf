@@ -114,3 +114,8 @@ options=['grp\tgrp:alt_space_toggle']
 [org/mate/screensaver]
 mode='single'
 themes=['screensavers-cosmos-slideshow']
+
+[org/gnome/evince/default]
+continuous=true
+inverted-colors=true
+sizing-mode='fit-width'
