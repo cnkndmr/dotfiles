@@ -1,0 +1,19 @@
+[org/mate/terminal/profiles/default]
+allow-bold=true
+background-color='#000000000000'
+background-darkness=0.79999999702000002
+background-image='/home/can/Pictures/wallpapers/6787605-earth-wallpaper.jpg'
+background-type='transparent'
+backspace-binding='ascii-del'
+bold-color='#000000000000'
+default-show-menubar=false
+delete-binding='escape-sequence'
+font='Serif 12'
+foreground-color='#FFFFFFFFFFFF'
+palette='#000000000000:#CDCD00000000:#0000CDCD0000:#CDCDCDCD0000:#00000000CDCD:#CDCD0000CDCD:#0000CDCDCDCD:#FAF9EBEBD7D6:#403F403F403F:#FFFF00000000:#0000FFFF0000:#FFFFFFFF0000:#00000000FFFF:#FFFF0000FFFF:#0000FFFFFFFF:#FFFFFFFFFFFF'
+scroll-on-output=true
+scrollback-unlimited=true
+silent-bell=false
+use-system-font=true
+use-theme-colors=false
+visible-name='Default'
