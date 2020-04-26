@@ -110,3 +110,7 @@ group-per-window=false
 [org/mate/desktop/peripherals/keyboard/kbd]
 layouts=['us', 'tr']
 options=['grp\tgrp:alt_space_toggle']
+
+[org/mate/screensaver]
+mode='single'
+themes=['screensavers-cosmos-slideshow']
