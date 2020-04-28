@@ -8,7 +8,7 @@ mount /dev/sda1 /mnt
 curl -Ss "https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4" | sed 's/^#//' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware nano networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+arch-chroot /mnt /bin/bash << EOF
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
 hwclock –systohc
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
@@ -25,4 +25,5 @@ grub-install –target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 umount -R /mnt
 exit
-reboot
+EOF
+echo "Install finished now reboot"
