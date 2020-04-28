@@ -20,8 +20,7 @@ echo "127.0.0.1 localhost
 127.0.1.1 core.localdomain core" > /etc/hosts
 mkinitcpio -P
 echo "root:1423" | chpasswd
-echo "====Password changed==="
-grub-install –target=i386-pc /dev/sda
+grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 echo "Install finished now reboot"
