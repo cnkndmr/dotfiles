@@ -22,5 +22,7 @@ mkinitcpio -P
 echo "root:1423" | chpasswd
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+systemctl enable NetworkManager
 EOF
+umount -R /mnt
 echo "Install finished now reboot"
