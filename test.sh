@@ -23,6 +23,9 @@ echo "root:1423" | chpasswd
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
+pacman -S mate mate-terminal xorg xorg-server lightdm lightdm-gtk-greeter
+systemctl enable lightdm
+echo "greeter-session = lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf
 EOF
 umount -R /mnt
 echo "Install finished now reboot"
