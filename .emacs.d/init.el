@@ -13,6 +13,8 @@
 (use-package cyberpunk-theme
   :ensure t)
 
+(use-package org-bullets
+  :ensure t)
 
 ;; ORG BULLETS
 (require 'org-bullets)
