@@ -19,11 +19,9 @@ echo "127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 core.localdomain core" > /etc/hosts
 mkinitcpio -P
-passwd
+echo "root:1423" | chpasswd
 pacman -S grub
 grub-install –target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-umount -R /mnt
-exit
 EOF
 echo "Install finished now reboot"
