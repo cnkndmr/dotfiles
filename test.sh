@@ -19,13 +19,16 @@ echo "127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 core.localdomain core" > /etc/hosts
 mkinitcpio -P
-echo "root:1423" | chpasswd
+echo "root:1234" | chpasswd
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
-pacman -S --noconfirm mate mate-terminal xorg xorg-server lightdm lightdm-gtk-greeter
+pacman -S --noconfirm mate mate-terminal xorg xorg-server lightdm lightdm-gtk-greeter sudo
 systemctl enable lightdm
 echo "greeter-session = lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+useradd -m -G wheel can
+echo "can:1423" | chpasswd
 EOF
 umount -R /mnt
 echo "Install finished now reboot"
