@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S \
+sudo pacman -S --noconfirm \
      mate-extra \
      git \
      i3-gaps \
