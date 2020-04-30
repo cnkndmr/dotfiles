@@ -6,6 +6,10 @@ gtk-theme='Arc-Dark'
 icon-theme='menta'
 monospace-font-name='Monospace 13'
 
+[org/mate/notification-daemon]
+popup-location='top_right'
+theme='coco'
+
 [org/mate/desktop/session]
 required-components-list=['windowmanager', 'panel', 'dock']
 
