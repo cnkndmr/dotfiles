@@ -3,8 +3,8 @@ document-font-name='Ubuntu 10'
 font-name='Ubuntu 10'
 gtk-color-scheme='menu_bg: #ffffff'
 gtk-theme='Arc-Dark'
-icon-theme='menta'
-monospace-font-name='Monospace 13'
+icon-theme='Numix'
+monospace-font-name='Ubuntu Mono 13'
 
 [org/mate/notification-daemon]
 popup-location='top_right'
@@ -118,11 +118,6 @@ options=['grp\tgrp:alt_space_toggle']
 [org/mate/screensaver]
 mode='single'
 themes=['screensavers-cosmos-slideshow']
-
-[org/gnome/evince/default]
-continuous=true
-inverted-colors=true
-sizing-mode='fit-width'
 
 [org/mate/desktop/peripherals/touchpad]
 horizontal-edge-scrolling=true
