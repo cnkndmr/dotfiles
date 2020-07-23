@@ -2,7 +2,10 @@
 
 sudo pacman -Syu --noconfirm
 
-## yay installation part
+# Install base packages
+sudo pacman -S --noconfirm --needed - < pkglist.txt
+
+# yay installation part
 sudo pacman -S --noconfirm git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -10,8 +13,8 @@ makepkg -si
 cd ..
 rm -rf yay
 
-# Install base packages
-sudo pacman -S --noconfirm --needed - < pkglist.txt
+# Install yay packages
+yay -S --noconfirm --needed - < pkglist_yay.txt
 
 # i3 setup
 mkdir -p ~/.config/i3

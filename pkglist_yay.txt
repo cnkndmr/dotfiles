@@ -1,0 +1,2 @@
+arc-gtk-theme-git
+numix-icon-theme-git
