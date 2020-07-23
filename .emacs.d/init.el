@@ -13,12 +13,21 @@
 (use-package cyberpunk-theme
   :ensure t)
 
-(use-package org-bullets
-  :ensure t)
+(setq-default frame-title-format '("%f [%m]"))
+
+;;;; Highligt line
+(global-hl-line-mode)
 
 ;; ORG BULLETS
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook 'org-bullets-mode))
+
+(use-package cyberpunk-theme
+  :ensure t)
+
+(use-package linum-relative
+  :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -29,16 +38,27 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
  '(cua-mode t nil (cua-base))
- '(display-line-numbers (quote relative))
  '(global-visual-line-mode t)
  '(inhibit-startup-screen t)
+ '(linum-relative-current-symbol "")
+ '(linum-relative-global-mode t)
  '(make-backup-files nil)
  '(menu-bar-mode nil)
- '(org-support-shift-select (quote always))
+ '(org-babel-load-languages (quote ((shell . t))))
+ '(org-confirm-babel-evaluate nil)
+ '(org-file-apps
+   (quote
+	((auto-mode . emacs)
+	 ("\\.pdf::\\([0-9]+\\)?\\'" . "/usr/bin/evince %s -i %1")
+	 ("\\.pdf\\'" . "/usr/bin/evince %s"))))
+ '(org-support-shift-select t)
  '(package-selected-packages
    (quote
     (org-bullets markdown-mode cyberpunk-theme use-package)))
  '(scroll-bar-mode nil)
+ '(scroll-step 1)
+ '(show-paren-mode t)
+ '(tab-width 4)
  '(tool-bar-mode nil)
  '(user-full-name "M. Can Kandemir")
  '(user-mail-address "cnkndmr@gmail.com"))
