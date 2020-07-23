@@ -1,0 +1,9 @@
+zathura
+mpv
+transmission
+zsh
+keepass
+meld
+redshift
+shellcheck
+youtube-dl
