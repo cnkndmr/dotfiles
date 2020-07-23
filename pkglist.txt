@@ -11,3 +11,4 @@ dconf-editor
 base-devel
 pulseaudio
 ttf-ubuntu-font-family
+picom
