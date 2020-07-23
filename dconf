@@ -1,5 +1,55 @@
+[org/mate/desktop/interface]
+document-font-name='Ubuntu 10'
+font-name='Ubuntu 10'
+gtk-color-scheme='menu_bg: #ffffff'
+gtk-theme='Arc-Dark'
+icon-theme='Numix'
+monospace-font-name='Ubuntu Mono 13'
+
+[org/mate/notification-daemon]
+popup-location='top_right'
+theme='coco'
+
 [org/mate/desktop/session]
 required-components-list=['windowmanager', 'panel', 'dock']
 
 [org/mate/desktop/session/required-components]
 windowmanager='i3'
+
+[org/mate/caja/preferences]
+always-use-location-entry=false
+default-folder-viewer='list-view'
+show-backup-files=true
+show-hidden-files=true
+
+[org/mate/desktop/peripherals/keyboard/general]
+default-group=0
+group-per-window=false
+
+[org/mate/desktop/peripherals/keyboard/kbd]
+layouts=['us', 'tr']
+options=['grp\tgrp:alt_space_toggle']
+
+[org/mate/screensaver]
+mode='single'
+themes=['screensavers-cosmos-slideshow']
+
+[org/mate/desktop/peripherals/touchpad]
+horizontal-edge-scrolling=true
+horizontal-two-finger-scrolling=true
+natural-scroll=true
+three-finger-click=0
+two-finger-click=0
+
+[org/mate/terminal/profiles/default]
+background-color='#000000000000'
+bold-color='#000000000000'
+default-show-menubar=false
+font='Ubuntu Mono 13'
+foreground-color='#FFFFFFFFFFFF'
+palette='#000000000000:#CDCD00000000:#0000CDCD0000:#CDCDCDCD0000:#00000000CDCD:#CDCD0000CDCD:#0000CDCDCDCD:#FAF9EBEBD7D6:#403F403F403F:#FFFF00000000:#0000FFFF0000:#FFFFFFFF0000:#00000000FFFF:#FFFF0000FFFF:#0000FFFFFFFF:#FFFFFFFFFFFF'
+scroll-on-output=true
+scrollback-unlimited=true
+use-system-font=false
+use-theme-colors=false
+visible-name='Default'
