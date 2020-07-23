@@ -42,7 +42,10 @@ three-finger-click=0
 two-finger-click=0
 
 [org/mate/terminal/profiles/default]
+allow-bold=true
 background-color='#000000000000'
+background-darkness=0.8
+background-type='transparent'
 bold-color='#000000000000'
 default-show-menubar=false
 font='Ubuntu Mono 13'
@@ -50,6 +53,8 @@ foreground-color='#FFFFFFFFFFFF'
 palette='#000000000000:#CDCD00000000:#0000CDCD0000:#CDCDCDCD0000:#00000000CDCD:#CDCD0000CDCD:#0000CDCDCDCD:#FAF9EBEBD7D6:#403F403F403F:#FFFF00000000:#0000FFFF0000:#FFFFFFFF0000:#00000000FFFF:#FFFF0000FFFF:#0000FFFFFFFF:#FFFFFFFFFFFF'
 scroll-on-output=true
 scrollback-unlimited=true
-use-system-font=false
+scrollbar-position='hidden'
+silent-bell=false
+use-system-font=true
 use-theme-colors=false
 visible-name='Default'
