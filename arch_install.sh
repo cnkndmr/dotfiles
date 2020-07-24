@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 timedatectl set-ntp true
 mkfs.ext4 /dev/sda1
