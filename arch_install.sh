@@ -7,22 +7,22 @@ n # new partition
 p # primary partition
 1 # partition number 1
     # default - start at beginning of disk 
-+100M # 100 MB boot parttion
++1G # 1G SWAP parttion
 n # new partition
 p # primary partition
 2 # partion number 2
     # default, start immediately after preceding partition
     # default, extend partition to end of disk
 a # make a partition bootable
-1 # bootable partition is partition 1 -- /dev/sda1
+2 # bootable partition is partition 2 -- /dev/sda2
 p # print the in-memory partition table
 w # write the partition table
 q # and we're done
 EOF
-mkfs.ext4 /dev/sda1
-mkswap /dev/sda2
-swapon /dev/sda2
-mount /dev/sda1 /mnt
+mkfs.ext4 /dev/sda2
+mkswap /dev/sda1
+swapon /dev/sda1
+mount /dev/sda2 /mnt
 curl -Ss "https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4" | sed 's/^#//' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware nano networkmanager grub
 genfstab -U /mnt >> /mnt/etc/fstab
