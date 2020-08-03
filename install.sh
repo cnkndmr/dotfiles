@@ -23,8 +23,8 @@ rm -rf yay
 yay -S --noconfirm --needed - < pkglist_yay.txt
 
 # Copying configs
-mkdir -p ~/.config
-cp -r ./home ~/
+cp -r ./home/.config/ ~/
+cp -r ./home/.emacs.d/ ~/
 
 # Loading preferences
 dconf load / < dconf
