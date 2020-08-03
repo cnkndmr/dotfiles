@@ -2,6 +2,12 @@
 
 sudo pacman -Syu --noconfirm
 
+sudo pacman -S --noconfirm git
+
+git clone https://github.com/cnkndmr/dotfiles.git
+
+cd dotfiles
+
 # Install base packages
 sudo pacman -S --noconfirm --needed - < pkglist.txt
 
@@ -16,13 +22,11 @@ rm -rf yay
 # Install yay packages
 yay -S --noconfirm --needed - < pkglist_yay.txt
 
-# i3 setup
-mkdir -p ~/.config/i3
-cp ./.config/i3/config ~/.config/i3
+# Copying configs
+mkdir -p ~/.config
+cp -r ./home ~/
 
+# Loading preferences
 dconf load / < dconf
-
-mkdir -p ~/.emacs.d
-cp ./.emacs.d/init.el ~/.emacs.d
 
 pkill -KILL -u "$(whoami)"
