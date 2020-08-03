@@ -9,10 +9,8 @@ p # primary partition
     # default, start immediately after preceding partition
     # default, extend partition to end of disk
 a # make a partition bootable
-1 # bootable partition is partition 1 -- /dev/sda1
 p # print the in-memory partition table
 w # write the partition table
-q # and we're done
 EOF
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
