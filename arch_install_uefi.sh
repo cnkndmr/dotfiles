@@ -1,17 +1,39 @@
 #!/bin/sh
 
 timedatectl set-ntp true
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda
+o # clear the in memory partition table
+n # new partition
+p # primary partition
+1 # partion number 1
+    # default, start immediately after preceding partition
++512M  # default, extend partition to end of disk
+t
+ef
+a # make a partition bootable
+n
+p # print the in-memory partition table
+2 # second partition
+    # confirm
++1G # size
+n
+p
+3
+    # confirm
+    # confirm
+w # write the partition table
+EOF
 mkfs.fat -F32 /dev/sda1
 mkswap /dev/sda2
 swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt
 curl -Ss "https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4" | sed 's/^#//' > /etc/pacman.d/mirrorlist
-pacstrap -i /mnt base base-devel linux linux-firmware nano networkmanager grub efibootmgr
-genfstab -U -p /mnt >> /mnt/etc/fstab
+pacstrap /mnt base base-devel linux linux-firmware nano networkmanager grub efibootmgr
+genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt << EOF
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
-hwclock –systohc
+hwclock --systohc
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
