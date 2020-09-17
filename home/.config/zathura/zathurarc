@@ -1,4 +1,4 @@
-set adjust-open "width"
+# set adjust-open "width" # Causes unscaled view at first time opened docs
 set selection-clipboard clipboard
 set scroll-page-aware "true"
 # set smooth-scroll "true"
