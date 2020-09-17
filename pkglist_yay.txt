@@ -1,2 +1,6 @@
-arc-gtk-theme-git
-numix-icon-theme-git
+anaconda
+git-cola
+masterpdfeditor-free
+mate-tweak
+woeusb-git
+yay
