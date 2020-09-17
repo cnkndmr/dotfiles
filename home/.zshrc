@@ -1,4 +1,4 @@
-source $HOME/antigen.zsh
+source $HOME/.config/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -17,3 +17,6 @@ antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
+
+alias sshrasp='ssh pi@10.147.20.190'
+export LC_ALL=en_US.UTF-8
