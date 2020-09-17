@@ -1,0 +1,46 @@
+auto-reload yes
+notify-always yes
+notify-program "/usr/bin/notify-send"
+browser "nohup chromium --app=%u > /dev/null 2>&1 &"
+confirm-exit yes
+datetime-format "%y %b %d %H:%M"
+max-browser-tabs 10
+unbind-key ^A
+bind-key ^A open-all-unread-in-browser-and-mark-read
+# macro o open-all-unread-in-browser-and-mark-read ; set browser "chromium --app=%u > /dev/null 2>&1"
+
+download-path "~/Downloads/Podcasts/to_sort/%h/%n"
+player "mpv --force-window"
+max-downloads 3
+podlist-format "%4i [%6tMB] [%5p %%] [%12K] %-11S %u → %F"
+
+macro p set browser "nohup ~/Dev/gits/scripts/personal/media.sh -p %u > /dev/null 2>&1 &" ; open-in-browser ; set browser "nohup chromium --app=%u > /dev/null 2>&1 &"
+macro w set browser "nohup ~/Dev/gits/scripts/personal/media.sh -w %u > /dev/null 2>&1 &" ; open-in-browser ; set browser "nohup chromium --app=%u > /dev/null 2>&1 &"
+macro a set browser "nohup ~/Dev/gits/scripts/personal/linkhandler.sh %u > /dev/null 2>&1 &" ; open-in-browser ; set browser "nohup chromium --app=%u > /dev/null 2>&1 &"
+
+highlight feedlist "^ *[0-9]+ *N " color156 color234
+highlight articlelist "^ *[0-9]+ *N " color156 color234
+highlight article "^Podcast Download URL:.*" color71 color234
+highlight article "^Links:" white color240 underline
+highlight article "\\[[0-9][0-9]*\\]" color72 color234 bold
+highlight article "\\[image [0-9][0-9]*\\]" color72 color234 bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" color72 color234 bold
+highlight article ":.*\\(link\\)$" color74 color234
+highlight article ":.*\\(image\\)$" color74 color234
+highlight article ":.*\\(embedded flash\\)$" color74 color234
+highlight article "^(Feed|Title|Author|Link|Date):.*" yellow color234 bold
+highlight all "^---.*---" color226 color234
+highlight all "\\(0/0\\)$" color234 color234
+
+color listnormal color246 color234
+color listnormal_unread color160 color234 bold
+color listfocus color166 color235
+color info color38 color235
+color background color244 color234
+color article white color234 
+
+itemview-title-format "Article '%T' (%u unread, %t total)"
+feedlist-format "%-65t %?d?- %-65d&? %> %u"
+articlelist-format "%-4i %f %D %t"
+feedlist-title-format "%N %V %> %u feeds with new articles"
+articlelist-title-format "%T - %U"
