@@ -20,21 +20,21 @@ cd ..
 rm -rf yay
 
 # Install yay packages
-yay -S --noconfirm --needed - < pkglist_yay.txt
+# yay -S --noconfirm --needed - < pkglist_yay.txt
 
 # Copying configs
 cd ./home
 cp -R . ~/
 cd ..
 
+# Loading preferences
+dconf load / < dconf
+
 # Install zsh, antigen
 sudo pacman -S --noconfirm zsh
 mkdir -p ~/.config/antigen
 curl -L git.io/antigen > ~/.config/antigen/antigen.zsh
 chsh -s /usr/bin/zsh
-
-# Loading preferences
-dconf load / < dconf
 
 echo "Press enter to restart:"
 read
