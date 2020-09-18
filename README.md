@@ -1,39 +1,44 @@
-# Arch Linux Mate-i3 Setup <!-- omit in toc -->
+# Arch Linux Mate Setup <!-- omit in toc -->
+
+---
+
+![](screenshot.png)
 
 ---
 
 # Table of Contents <!-- omit in toc -->
 
-- [1. Installing Arch Linux](#1-installing-arch-linux)
-  - [1.1. Arch install script (Legacy bios)](#11-arch-install-script-legacy-bios)
-- [2. List of Programs](#2-list-of-programs)
-  - [2.1. Base setup (This part will auto installed in Arch install script)](#21-base-setup-this-part-will-auto-installed-in-arch-install-script)
-  - [2.2. Main packages](#22-main-packages)
-  - [2.3. Additional packages](#23-additional-packages)
-- [3. Programs](#3-programs)
-  - [3.1. Desktop Environment](#31-desktop-environment)
-    - [3.1.1. Mate](#311-mate)
-    - [3.1.2. i3](#312-i3)
-  - [3.2. Terminal](#32-terminal)
-    - [3.2.1. Mate-Terminal](#321-mate-terminal)
-    - [3.2.2. Zsh](#322-zsh)
-  - [3.3. Browsers](#33-browsers)
-    - [3.3.1. Firefox](#331-firefox)
-    - [3.3.2. Chromium](#332-chromium)
-  - [3.4. Text Editors](#34-text-editors)
-    - [3.4.1. Emacs](#341-emacs)
-    - [3.4.2. Vscode](#342-vscode)
-  - [3.5. Media Viewers](#35-media-viewers)
-    - [3.5.1. Zathura](#351-zathura)
-    - [3.5.2. Mpv](#352-mpv)
+- [Installing Arch Linux](#installing-arch-linux)
+  - [Arch install script (Legacy bios)](#arch-install-script-legacy-bios)
+  - [Install script](#install-script)
+- [Setup](#setup)
+  - [Desktop Environment](#desktop-environment)
+    - [Mate](#mate)
+      - [Panel](#panel)
+  - [Terminal](#terminal)
+    - [Mate-Terminal](#mate-terminal)
+    - [Zsh](#zsh)
+  - [Web  Browsers](#web-browsers)
+    - [Firefox](#firefox)
+    - [Chromium](#chromium)
+  - [Text Editors](#text-editors)
+    - [Emacs](#emacs)
+    - [Vscode](#vscode)
+  - [Document Viewer/Editor](#document-viewereditor)
+    - [Zathura](#zathura)
+    - [Master PDF Editor](#master-pdf-editor)
+    - [Libreoffice](#libreoffice)
+  - [Video/Audio Players](#videoaudio-players)
+    - [Mpv](#mpv)
+    - [Rhythmbox](#rhythmbox)
 
 ---
 
-# 1. Installing Arch Linux
+# Installing Arch Linux
 
 Preferably arch linux must be installed via [Arch wiki installation guide](https://wiki.archlinux.org/index.php/installation_guide). But I created an script for arch installation because while testing out this rice on WMs it needs to be installed quickly.
 
-## 1.1. Arch install script (Legacy bios)
+## Arch install script (Legacy bios)
 
 Before running arch install script partitions must be prepared. Partitions can be created via **cfdisk** command.
 
@@ -52,77 +57,48 @@ sh -c "$(curl -fsSL https://git.io/JJ8Dm)"
 
 **NOTE**: User passwords in script are chosen as simple it can be because of this is not an proper installation. Must be change after install.
 
-# 2. List of Programs
+## Install script
 
-## 2.1. Base setup (This part will auto installed in [Arch install script](#arch-install-script-legacy-bios))
+```sh
+sh -c "$(curl -fsSL https://git.io/JJw2i)"
+```
 
-1. mate
-2. mate-terminal
-3. xorg
-4. xorg-server
-5. lightdm
-6. lightdm-gtk-greeter
-7. sudo
+# Setup
 
-## 2.2. Main packages
+## Desktop Environment
 
-8. mate-extra
-9. git
-10. i3-gaps
-11. dmenu
-12. network-manager-applet
-13. firefox
-14. chromium
-15. emacs
-16. dconf
-17. dconf-editor
-18. base-devel
-19. pulseaudio
-20. ttf-ubuntu-font-family
-21. picom
-22. arc-gtk-theme-git (yay)
-23. numix-icon-theme-git (yay)
+### Mate
 
-## 2.3. Additional packages
+#### Panel
 
-24. zathura
-25. mpv
-26. transmission
-27. zsh
-28. keepass
-29. meld
-30. redshift
-31. shellcheck
-32. youtube-dl
+## Terminal
 
-# 3. Programs
+### Mate-Terminal
 
-## 3.1. Desktop Environment
+### Zsh
 
-### 3.1.1. Mate
+## Web  Browsers
 
-### 3.1.2. i3
+### Firefox
 
-## 3.2. Terminal
+### Chromium
 
-### 3.2.1. Mate-Terminal
+## Text Editors
 
-### 3.2.2. Zsh
+### Emacs
 
-## 3.3. Browsers
+### Vscode
 
-### 3.3.1. Firefox
+## Document Viewer/Editor
 
-### 3.3.2. Chromium
+### Zathura
 
-## 3.4. Text Editors
+### Master PDF Editor
 
-### 3.4.1. Emacs
+### Libreoffice
 
-### 3.4.2. Vscode
+## Video/Audio Players
 
-## 3.5. Media Viewers
+### Mpv
 
-### 3.5.1. Zathura
-
-### 3.5.2. Mpv
+### Rhythmbox
