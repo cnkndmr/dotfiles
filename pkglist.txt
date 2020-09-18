@@ -58,7 +58,6 @@ pulseaudio
 rhythmbox
 rsync
 sed
-steam
 sudo
 syncthing
 texinfo
