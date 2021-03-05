@@ -14,7 +14,7 @@ w # write the partition table
 EOF
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
-curl -Ss "https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4" | sed 's/^#//' > /etc/pacman.d/mirrorlist
+curl -Ss "https://archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4" | sed 's/^#//' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware nano networkmanager grub
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt << EOF
